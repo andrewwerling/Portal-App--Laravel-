@@ -1,0 +1,17 @@
+[08-May-2025 11:52:37 America/Boise] PHP Fatal error:  During class fetch: Uncaught ParseError: Unterminated comment starting line 669 in /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/nesbot/carbon/src/Carbon/Traits/Comparison.php:669
+Stack trace:
+#0 /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/home4/wincmedi...')
+#1 /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/nesbot/carbon/src/Carbon/Traits/Date.php(863): Composer\Autoload\ClassLoader->loadClass('Carbon\\Traits\\C...')
+#2 /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/composer/ClassLoader.php(576): include('/home4/wincmedi...')
+#3 /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/home4/wincmedi...')
+#4 /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/nesbot/carbon/src/Carbon/Carbon.php(836): Composer\Autoload\ClassLoader->loadClass('Carbon\\Traits\\D...')
+#5 /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/composer/ClassLoader.php(576): include('/home4/wincmedi...')
+#6 /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/home4/wincmedi...')
+#7 /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/laravel/framework/src/Illuminate/Support/Carbon.php(12): Composer\Autoload\ClassLoader->loadClass('Carbon\\Carbon')
+#8 /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/composer/ClassLoader.php(576): include('/home4/wincmedi...')
+#9 /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/home4/wincmedi...')
+#10 /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(139): Composer\Autoload\ClassLoader->loadClass('Illuminate\\Supp...')
+#11 /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1219): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#12 /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/public/index.php(20): Illuminate\Foundation\Application->handleRequest(Object(Illuminate\Http\Request))
+#13 {main} in /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/nesbot/carbon/src/Carbon/Traits/Date.php on line 863
+[08-May-2025 17:57:38 UTC] PHP Fatal error:  Trait "Illuminate\View\Concerns\ManagesStacks" not found in /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/laravel/framework/src/Illuminate/View/Factory.php on line 14
