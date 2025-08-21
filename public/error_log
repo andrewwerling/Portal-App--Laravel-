@@ -15,3 +15,11 @@ Stack trace:
 #12 /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/public/index.php(20): Illuminate\Foundation\Application->handleRequest(Object(Illuminate\Http\Request))
 #13 {main} in /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/nesbot/carbon/src/Carbon/Traits/Date.php on line 863
 [08-May-2025 17:57:38 UTC] PHP Fatal error:  Trait "Illuminate\View\Concerns\ManagesStacks" not found in /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/vendor/laravel/framework/src/Illuminate/View/Factory.php on line 14
+[28-May-2025 06:07:21 UTC] PHP Fatal error:  Cannot declare class App\Listeners\RecordRadiusLoginAttempt, because the name is already in use in /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/app/Listeners/RecordLoginAttempt.php on line 8
+[28-May-2025 06:07:44 UTC] PHP Fatal error:  Cannot declare class App\Listeners\RecordRadiusLoginAttempt, because the name is already in use in /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/app/Listeners/RecordLoginAttempt.php on line 8
+[28-May-2025 06:17:42 UTC] PHP Fatal error:  Cannot declare class App\Listeners\RecordRadiusLoginAttempt, because the name is already in use in /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/app/Listeners/RecordLoginAttempt.php on line 8
+[28-May-2025 06:26:55 UTC] PHP Fatal error:  Cannot declare class App\Listeners\RecordRadiusLoginAttempt, because the name is already in use in /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/app/Listeners/RecordLoginAttempt.php on line 8
+[28-May-2025 08:37:25 UTC] PHP Fatal error:  Cannot declare class App\Models\RadUser, because the name is already in use in /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/app/Models/RadiusMapping.php on line 8
+
+---------------------------------------------------------
+
