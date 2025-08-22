@@ -2,7 +2,7 @@ APP_NAME="Portal App by Festival WiFi Guys"
 APP_ENV=local
 APP_KEY=base64:2lrHWkftSRjfcM7mevlxkI48J3Mtbr+m5P2WiFlaciA=
 APP_DEBUG=true
-APP_URL=https://portal.festivalwifiguys.com
+APP_URL=127.0.0.1
 
 APP_LOCALE=en
 APP_FALLBACK_LOCALE=en
@@ -21,11 +21,11 @@ LOG_DEPRECATIONS_CHANNEL=null
 LOG_LEVEL=debug
 
 DB_CONNECTION=mysql
-DB_HOST=localhost
+DB_HOST=173.254.14.116
 DB_PORT=3306
 DB_DATABASE=wincmedi_wifi-portal
 DB_USERNAME=wincmedi_wifi-portal
-DB_PASSWORD="3N$9h.[?oekX"
+DB_PASSWORD='3N$9h.[?oekX'
 
 SESSION_DRIVER=database
 SESSION_LIFETIME=120
