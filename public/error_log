@@ -20,6 +20,3 @@ Stack trace:
 [28-May-2025 06:17:42 UTC] PHP Fatal error:  Cannot declare class App\Listeners\RecordRadiusLoginAttempt, because the name is already in use in /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/app/Listeners/RecordLoginAttempt.php on line 8
 [28-May-2025 06:26:55 UTC] PHP Fatal error:  Cannot declare class App\Listeners\RecordRadiusLoginAttempt, because the name is already in use in /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/app/Listeners/RecordLoginAttempt.php on line 8
 [28-May-2025 08:37:25 UTC] PHP Fatal error:  Cannot declare class App\Models\RadUser, because the name is already in use in /home4/wincmedi/portal.festivalwifiguys.com/PortalApp/app/Models/RadiusMapping.php on line 8
-
----------------------------------------------------------
-
