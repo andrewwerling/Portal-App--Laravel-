@@ -56,8 +56,8 @@ return [
     'twitter-oauth-2' => [
         'client_id' => env('TWITTER_CLIENT_ID'),
         'client_secret' => env('TWITTER_CLIENT_SECRET'),
-        'redirect' => env('TWITTER_REDIRECT_URI'),
-        'scopes' => ['users.read'],
+        'redirect' => env('TWITTER_REDIRECT_URI', '/auth/twitter-oauth-2/callback'),
+        'scopes' => ['users.read', 'tweet.read', 'users.email'],
     ],
 
 ];

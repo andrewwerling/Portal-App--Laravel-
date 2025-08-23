@@ -127,46 +127,46 @@ return view('livewire.admin.battery-info', [
                                     <tr>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider cursor-pointer" wire:click="sortBy('unit_id')">
                                             Unit ID
-                                            @if ($sortField === 'unit_id') <span>{!! $sortDirection === 'asc' ? '&#8593;' : '&#8595;' !!}</span> @endif
+                                        @if ($sortField === 'unit_id') <span>{{ $sortDirection === 'asc' ? 'Up' : 'Down' }}</span> @endif
                                         </th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider cursor-pointer" wire:click="sortBy('ip_address')">
                                             IP Address
-                                            @if ($sortField === 'ip_address') <span>{!! $sortDirection === 'asc' ? '&#8593;' : '&#8595;' !!}</span> @endif
+                                        @if ($sortField === 'ip_address') <span>{{ $sortDirection === 'asc' ? 'Up' : 'Down' }}</span> @endif
                                         </th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider cursor-pointer" wire:click="sortBy('battery_percent')">
                                             Battery %
-                                            @if ($sortField === 'battery_percent') <span>{!! $sortDirection === 'asc' ? '&#8593;' : '&#8595;' !!}</span> @endif
+                                        @if ($sortField === 'battery_percent') <span>{{ $sortDirection === 'asc' ? 'Up' : 'Down' }}</span> @endif
                                         </th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider cursor-pointer" wire:click="sortBy('battery_voltage')">
                                             Batt Volt
-                                            @if ($sortField === 'battery_voltage') <span>{!! $sortDirection === 'asc' ? '&#8593;' : '&#8595;' !!}</span> @endif
+                                        @if ($sortField === 'battery_voltage') <span>{{ $sortDirection === 'asc' ? 'Up' : 'Down' }}</span> @endif
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider">Batt Curr</th> {{-- Not typically sorted --}}
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider">Batt Pow</th> {{-- Not typically sorted --}}
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider">Batt Curr</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider">Batt Pow</th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider cursor-pointer" wire:click="sortBy('solar_voltage')">
                                             Sol Volt
-                                            @if ($sortField === 'solar_voltage') <span>{!! $sortDirection === 'asc' ? '&#8593;' : '&#8595;' !!}</span> @endif
+                                        @if ($sortField === 'solar_voltage') <span>{{ $sortDirection === 'asc' ? 'Up' : 'Down' }}</span> @endif
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider">Sol Curr</th> {{-- Not typically sorted --}}
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider">Sol Pow</th> {{-- Not typically sorted --}}
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider">Sol Curr</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider">Sol Pow</th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider cursor-pointer" wire:click="sortBy('temperature_f')">
                                             Temp °F
-                                            @if ($sortField === 'temperature_f') <span>{!! $sortDirection === 'asc' ? '&#8593;' : '&#8595;' !!}</span> @endif
+                                        @if ($sortField === 'temperature_f') <span>{{ $sortDirection === 'asc' ? 'Up' : 'Down' }}</span> @endif
                                         </th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider cursor-pointer" wire:click="sortBy('humidity_percent')">
                                             Humidity %
-                                            @if ($sortField === 'humidity_percent') <span>{!! $sortDirection === 'asc' ? '&#8593;' : '&#8595;' !!}</span> @endif
+                                        @if ($sortField === 'humidity_percent') <span>{{ $sortDirection === 'asc' ? 'Up' : 'Down' }}</span> @endif
                                         </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider">Relays</th> {{-- Not typically sorted --}}
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider">Relays</th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider cursor-pointer" wire:click="sortBy('created_at')">
                                             Timestamp
-                                            @if ($sortField === 'created_at') <span>{!! $sortDirection === 'asc' ? '&#8593;' : '&#8595;' !!}</span> @endif
+                                            @if ($sortField == 'created_at') <span>{{ $sortDirection == 'asc' ? 'Up' : 'Down' }}</span> @endif
                                         </th>
                                         <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-zinc-500 dark:text-zinc-300 uppercase tracking-wider">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white dark:bg-zinc-800 divide-y divide-zinc-200 dark:divide-zinc-700">
-                                    @forelse($batteryData as $data)  {{-- Changed from @foreach to @forelse for consistency --}} 
+                                    @forelse($batteryData as $data)
                                         <tr wire:key="battery-row-{{ $data->id }}">
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-zinc-900 dark:text-zinc-100">{{ $data->unit_id }}</td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-zinc-900 dark:text-zinc-100">{{ $data->ip_address ?? 'N/A' }}</td>
@@ -191,13 +191,13 @@ return view('livewire.admin.battery-info', [
                                                 </button>
                                             </td>
                                         </tr>
-                                    @empty {{-- Added for @forelse --}}
+                                    @empty
                                         <tr>
                                             <td colspan="14" class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400 text-center">
                                                 No battery data found matching your search criteria.
                                             </td>
                                         </tr>
-                                    @endforelse {{-- Changed from @endforeach --}}
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -205,7 +205,7 @@ return view('livewire.admin.battery-info', [
                         <div class="mt-4">
                             {{ $batteryData->links() }}
                         </div>
-                    @else {{-- This else corresponds to the outer if(count($batteryData) > 0) which is now handled by @forelse empty state --}}
+                    @else
                         <div class="bg-zinc-50 dark:bg-zinc-700 p-4 rounded-lg text-center">
                             <p class="text-zinc-600 dark:text-zinc-300">No battery data available yet.</p>
                         </div>
@@ -299,7 +299,7 @@ return view('livewire.admin.battery-info', [
                         x: {
                             type: 'time',
                             time: {
-                                unit: 'hour', 
+                                unit: 'hour',
                                 tooltipFormat: 'MMM D, YYYY, h:mm A',
                                 displayFormats: {
                                     hour: 'MMM D, hA'
@@ -321,7 +321,7 @@ return view('livewire.admin.battery-info', [
                     plugins: {
                         tooltip: {
                             mode: 'index',
-                            intersect: false,
+                            intersect: false
                         },
                         legend: {
                             display: true
@@ -367,29 +367,22 @@ return view('livewire.admin.battery-info', [
         }
 
         Livewire.on('chartDataUpdated', event => {
-            // Prefer event.detail if available (common for custom browser events)
-            // Fallback to event[0] for older Livewire or direct array dispatches
-            // Finally, fallback to event itself if neither of the above yields data.
             const receivedData = event.detail || (Array.isArray(event) ? event[0] : event) || event;
             console.log('chartDataUpdated event received with:', receivedData);
             processChartData(receivedData);
         });
         
-        // Initial chart data load 
         const initialSelectedUnitId = @json($selectedUnitId);
         const initialChartData = @json($chartData);
         console.log('Initial selectedUnitId from $selectedUnitId:', initialSelectedUnitId);
         console.log('Initial chartData from $chartData:', initialChartData);
 
         if (initialSelectedUnitId && initialChartData && initialChartData.length > 0) {
-            // Directly process the data already fetched by Livewire's mount()
             processChartData(initialChartData);
         } else {
-            // Clear charts if no unit is selected or no data on load
             console.log('Initial load: No unit selected or no chart data. Clearing charts.');
             clearAllCharts(); 
         }
-
     });
 </script>
 @endpush

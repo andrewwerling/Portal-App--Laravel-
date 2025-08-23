@@ -23,10 +23,14 @@ Route::middleware(['auth', 'verified', 'account.level:admin'])->prefix('admin')-
     
     // Battery information endpoint
     Route::get('/battery-info', App\Livewire\Admin\BatteryInfo::class)->name('admin.battery-info');
+    Route::get('/unifi-controller', App\Livewire\Admin\UnifiController::class)->name('admin.unifi-controller');
+
+    // Route::get('/uml', \Andyabih\LaravelToUML\LaravelToUMLController::class, 'index')->middleware(['auth', 'verified', 'account.level:admin']);
 });
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
 
 require __DIR__.'/auth.php';

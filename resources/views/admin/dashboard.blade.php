@@ -11,22 +11,27 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h3 class="text-lg font-semibold mb-4">Admin Controls</h3>
                     
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <a href="{{ route('admin.users') }}" class="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg shadow hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors">
-                            <h4 class="font-medium text-blue-700 dark:text-blue-300 mb-2">User Management</h4>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">Manage user accounts and permissions</p>
-                        </a>
-                        
-                        <a href="{{ route('admin.battery-info') }}" class="bg-green-50 dark:bg-green-900 p-4 rounded-lg shadow hover:bg-green-100 dark:hover:bg-green-800 transition-colors">
-                            <h4 class="font-medium text-green-700 dark:text-green-300 mb-2">Battery Information</h4>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">View battery status from equipment</p>
-                        </a>
-                        
-                        <div class="bg-purple-50 dark:bg-purple-900 p-4 rounded-lg shadow">
-                            <h4 class="font-medium text-purple-700 dark:text-purple-300 mb-2">System Settings</h4>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">Configure application settings</p>
-                        </div>
-                    </div>
+<div class="grid md:grid-cols-4 gap-6">
+    <a href="{{ route('admin.users') }}" class="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg shadow hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors">
+        <h4 class="font-medium text-blue-700 dark:text-blue-300 mb-2">User Management</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Manage user accounts and permissions</p>
+    </a>
+    
+    <a href="{{ route('admin.battery-info') }}" class="bg-green-50 dark:bg-green-900 p-4 rounded-lg shadow hover:bg-green-100 dark:hover:bg-green-800 transition-colors">
+        <h4 class="font-medium text-green-700 dark:text-green-300 mb-2">Battery Information</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-300">View battery status from equipment</p>
+    </a>
+    
+    <div class="bg-purple-50 dark:bg-purple-900 p-4 rounded-lg shadow">
+        <h4 class="font-medium text-purple-700 dark:text-purple-300 mb-2">System Settings</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Configure application settings</p>
+    </div>
+    
+    <a href="{{ route('admin.unifi-controller') }}" class="bg-yellow-50 dark:bg-yellow-900 p-4 rounded-lg shadow hover:bg-yellow-100 dark:hover:bg-yellow-800 transition-colors">
+        <h4 class="font-medium text-yellow-700 dark:text-yellow-300 mb-2">Unifi Controller</h4>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Login to Unifi network controller instance</p>
+    </a>
+</div>
                     
                     <div class="mt-8">
                         <h3 class="text-lg font-semibold mb-4">System Overview</h3>

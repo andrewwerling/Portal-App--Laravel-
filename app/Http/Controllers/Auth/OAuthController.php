@@ -36,6 +36,8 @@ class OAuthController extends Controller
         }
 
         if ($provider === 'twitter') {
+            // Log Twitter-specific configuration for debugging
+            Log::debug('Twitter OAuth Redirect: Scopes - ' . json_encode(config('services.twitter-oauth-2.scopes')) . ', Client ID: ' . config('services.twitter-oauth-2.client_id'));
             return Socialite::driver('twitter-oauth-2')->redirect();
         }
 
@@ -60,8 +62,9 @@ class OAuthController extends Controller
 
         // Check if email is provided by Socialite
         if (empty($socialiteUser->getEmail())) {
-            return redirect()->route('login')->withErrors([
-                'email' => 'Could not retrieve email address from ' . ucfirst($provider) . '. Please ensure your email is public or try another login method.',
+            Log::warning('OAuth callback for ' . ucfirst($provider) . ': Email not provided. Redirecting to registration.');
+            return redirect()->route('register')->withErrors([
+                'email' => 'No email provided by ' . ucfirst($provider) . '. Please register with an email.'
             ]);
         }
 
