@@ -25,6 +25,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         Login::class => [
             LogAppLoginToRadpostauth::class,
+            \App\Listeners\RecordLoginAttempt::class,
         ],
         Failed::class => [
             RecordFailedLoginAttempt::class,

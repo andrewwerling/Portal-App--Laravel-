@@ -45,15 +45,31 @@ class RecordFailedLoginAttempt
             'webgl_parameters' => null, // Requires JavaScript
         ];
 
-        // Skip recording if we can't find a user
-        if (!$event->user) {
+        // Try to find user by email from credentials if user object not available
+        $userId = null;
+        if ($event->user) {
+            $userId = $event->user->id;
+        } else {
+            // Try to find user by email from credentials
+            $credentials = $event->credentials;
+            if (isset($credentials['email'])) {
+                $user = DB::table('users')->where('email', $credentials['email'])->first();
+                if ($user) {
+                    $userId = $user->id;
+                }
+            }
+        }
+
+        // Skip if we still can't find a user (e.g., email doesn't exist)
+        if (!$userId) {
             return;
         }
 
         // Record failed login attempt
         try {
             DB::table('login_attempts')->insert([
-                'user_id' => $event->user->id,
+                'user_id' => $userId,
+                'session_id' => session()->getId(),
                 'ip_address' => request()->ip(),
                 'attempted_at' => now(),
                 'successful' => false,
@@ -72,7 +88,7 @@ class RecordFailedLoginAttempt
             ]);
         } catch (\Exception $e) {
             // Log the error but don't prevent login
-            \Log::error('Failed to record login attempt: ' . $e->getMessage());
+            \Log::error('Failed to record failed login attempt: ' . $e->getMessage());
         }
     }
 }

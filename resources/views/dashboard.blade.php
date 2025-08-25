@@ -12,15 +12,15 @@
         <div class="grid lg:grid-cols-2 gap-8">
             <!-- Left Column -->
             <div class="grid gap-8 auto-rows-min">
+                <x-card title="Network/WiFi Session History" :collapsed="False">
+                    <livewire:user-sessions />
+                </x-card>
+
                 <x-card title="Purchase History" :collapsed="true">
                     <livewire:purchase-history />
                 </x-card>
 
-                <x-card title="User Sessions" :collapsed="true">
-                    <livewire:user-sessions />
-                </x-card>
-
-                <x-card title="Your Profile" :collapsed="true">
+                <x-card title="Your Profile" :collapsed="false">
                     <livewire:guest-info />
                 </x-card>
             </div>
@@ -31,7 +31,7 @@
                     <livewire:active-devices />
                 </x-card>
 
-                <x-card title="Login History/Attempts" :collapsed="true">
+                <x-card title="Account Login History" :collapsed="false">
                     <livewire:login-history />
                 </x-card>
             </div>

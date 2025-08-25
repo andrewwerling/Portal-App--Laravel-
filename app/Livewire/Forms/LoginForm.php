@@ -3,6 +3,8 @@
 namespace App\Livewire\Forms;
 
 use Illuminate\Auth\Events\Lockout;
+use Illuminate\Auth\Events\Failed;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
@@ -37,9 +39,16 @@ class LoginForm extends Form
 
         // Attempt authentication via RadiusAuthService
         $radUser = $this->radiusAuthService->authenticate($this->email, $this->password);
-
+        
         if (!$radUser) {
             RateLimiter::hit($this->throttleKey());
+
+            // Fire the Failed event to trigger failed login attempt recording
+            $user = User::where('email', $this->email)->first();
+            event(new Failed('radius', $user, [
+                'email' => $this->email,
+                'password' => $this->password
+            ]));
 
             // Record failed login attempt
             Log::info('Login Attempt Failed', [
@@ -68,12 +77,15 @@ class LoginForm extends Form
         // Manually log in the user
         Auth::login($user, $this->remember);
 
+        // Fire the Login event to trigger successful login attempt recording
+        event(new Login('radius', $user, $this->remember));
+
         // Start a network session
         $sessionId = $this->radiusAuthService->startNetworkSession($radUser, 'Laravel-Portal');
-
+        
         // Add session ID to user's session
         session(['radius_session_id' => $sessionId]);
-
+        
         // Log successful login
         Log::info('Login Attempt Successful', [
             'email' => $this->email,
