@@ -2,16 +2,29 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+use Livewire\Component;
 
 class PurchaseHistory extends Component
 {
     public $purchases;
 
-    public function mount()
+    /**
+     * Load recent purchases for the authenticated user.
+     * Gracefully returns an empty collection if the purchases table
+     * has not been created yet (feature not deployed).
+     * - BVSS LORD | 2026-02-27
+     */
+    public function mount(): void
     {
+        if (! Schema::hasTable('purchases')) {
+            $this->purchases = collect();
+
+            return;
+        }
+
         $this->purchases = DB::table('purchases')
             ->where('user_id', Auth::id())
             ->latest('purchased_at')
