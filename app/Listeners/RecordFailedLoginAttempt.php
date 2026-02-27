@@ -2,10 +2,10 @@
 
 namespace App\Listeners;
 
-use Illuminate\Auth\Events\Failed;
-use Illuminate\Support\Facades\DB;
 use DeviceDetector\DeviceDetector;
 use DeviceDetector\Parser\Device\AbstractDeviceParser;
+use Illuminate\Auth\Events\Failed;
+use Illuminate\Support\Facades\DB;
 
 class RecordFailedLoginAttempt
 {
@@ -32,8 +32,8 @@ class RecordFailedLoginAttempt
         // Gather device fingerprinting data
         $deviceInfo = [
             'hardware' => $dd->getDeviceName() ?: null,
-            'browser' => $dd->getClient('name') . ' ' . $dd->getClient('version') ?: null,
-            'os' => $dd->getOs('name') . ' ' . $dd->getOs('version') ?: null,
+            'browser' => $dd->getClient('name').' '.$dd->getClient('version') ?: null,
+            'os' => $dd->getOs('name').' '.$dd->getOs('version') ?: null,
             'screen_resolution' => null, // Requires JavaScript
             'battery_usage' => null, // Requires JavaScript
             'device_memory' => null, // Requires JavaScript
@@ -46,33 +46,26 @@ class RecordFailedLoginAttempt
         ];
 
         // Skip recording if we can't find a user
-        if (!$event->user) {
+        if (! $event->user) {
             return;
         }
 
-        // Record failed login attempt
+        // Record failed login attempt to radpostauth (same table used by
+        // LogAppLoginToRadpostauth for successful logins) - BVSS LORD | 2026-02-27
         try {
-            DB::table('login_attempts')->insert([
-                'user_id' => $event->user->id,
-                'ip_address' => request()->ip(),
-                'attempted_at' => now(),
-                'successful' => false,
-                'user_agent' => request()->userAgent(),
-                'hardware' => $deviceInfo['hardware'],
-                'browser' => $deviceInfo['browser'],
-                'os' => $deviceInfo['os'],
-                'screen_resolution' => $deviceInfo['screen_resolution'],
-                'battery_usage' => $deviceInfo['battery_usage'],
-                'device_memory' => $deviceInfo['device_memory'],
-                'browser_plugins' => $deviceInfo['browser_plugins'] ? json_encode($deviceInfo['browser_plugins']) : null,
-                'browser_settings' => json_encode($deviceInfo['browser_settings']),
-                'webgl_parameters' => $deviceInfo['webgl_parameters'] ? json_encode($deviceInfo['webgl_parameters']) : null,
-                'created_at' => now(),
-                'updated_at' => now(),
+            DB::table('radpostauth')->insert([
+                'username' => $event->user->email,
+                'pass' => 'Reject',
+                'reply' => 'Authentication Failed (Laravel App)',
+                'authdate' => now(),
+                'extra' => json_encode([
+                    'ip_address' => request()->ip(),
+                    'user_agent' => request()->userAgent(),
+                    'provider' => 'laravel_app_login',
+                ]),
             ]);
         } catch (\Exception $e) {
-            // Log the error but don't prevent login
-            \Log::error('Failed to record login attempt: ' . $e->getMessage());
+            \Log::error('Failed to record failed login attempt to radpostauth: '.$e->getMessage());
         }
     }
 }
